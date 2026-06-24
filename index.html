@@ -15,6 +15,7 @@
 body {
     overflow: hidden;
     height: 100vh;
+    height: 100dvh;
 
     font-family: "Comic Sans MS", "Comic Sans", cursive;
     color: white;
@@ -50,6 +51,7 @@ canvas {
 
     width: 100vw;
     height: 100vh;
+    height: 100dvh;
 
     display: flex;
     flex-direction: column;
@@ -58,28 +60,23 @@ canvas {
 
     text-align: center;
     gap: 15px;
-    padding: 20px;
+    padding: 10px;
 }
 
-/* TITLE (SMALL + MOBILE SAFE) */
+/* TITLE */
 h1 {
-    font-size: clamp(1.4rem, 4vw, 3rem);
+    font-size: clamp(1.2rem, 3.5vw, 3rem);
     font-weight: normal;
     color: #f5f1e6;
+    line-height: 1.2;
 }
 
-/* COUNTDOWN (RESPONSIVE) */
+/* COUNTDOWN */
 #countdown {
-    font-size: clamp(1.8rem, 6vw, 5.5rem);
+    font-size: clamp(1.6rem, 5vw, 5.5rem);
     font-weight: bold;
-
+    white-space: nowrap;
     color: #fff8dc;
-
-    text-align: center;
-
-    /* important for mobile wrapping */
-    white-space: normal;
-    word-break: break-word;
 }
 
 /* SACRED IMAGES (DESKTOP SIDE) */
@@ -111,40 +108,37 @@ h1 {
     right: 40px;
 }
 
-/* ================= MOBILE ================= */
+/* ================= MOBILE: NO SCROLL ================= */
 @media (max-width: 768px) {
 
     body {
-        overflow-y: auto;
-    }
-
-    h1 {
-        font-size: 1.8rem;
-    }
-
-    #countdown {
-        font-size: 2.2rem;
-    }
-
-    /* stack images nicely */
-    .sacred {
-        position: static;
-        transform: none;
-
-        display: flex;
-        justify-content: center;
-
-        margin: 10px 0;
-    }
-
-    .sacred img {
-        width: 160px;
-        height: 240px;
+        overflow: hidden;
     }
 
     .container {
-        height: auto;
-        min-height: 100vh;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    #countdown {
+        font-size: 1.7rem;
+        white-space: normal;
+    }
+
+    /* stack images but keep SMALL */
+    .sacred {
+        position: static;
+        transform: none;
+        margin: 5px 0;
+    }
+
+    .sacred img {
+        width: 110px;
+        height: 150px;
     }
 }
 </style>
